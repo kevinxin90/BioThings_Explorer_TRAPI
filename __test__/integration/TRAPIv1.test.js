@@ -3,18 +3,18 @@ const request = require('supertest');
 const fs = require("fs");
 var path = require('path');
 
-
-describe("Testing endpoints", () => {
-    const example_foler = path.resolve(__dirname, '../../examples/v1');
+//V1 tests are now skipped.
+describe.skip("Testing v1 endpoints", () => {
+    const example_folder = path.resolve(__dirname, '../../examples/v1');
     const clinical_risk_kp_folder = path.resolve(__dirname, '../../examples/v1/multiomics/clinical_risk_kp');
     const old_spec_folder = path.resolve(__dirname, "../../examples/v0.9.2");
     const invalid_example_folder = path.resolve(__dirname, "../../examples/v1/invalid");
     const drug2disease_query = JSON.parse(fs.readFileSync(path.join(clinical_risk_kp_folder, 'query_drug_to_disease.json')));
-    const gene2chemical_query = JSON.parse(fs.readFileSync(path.join(example_foler, 'query_chemicals_physically_interacts_with_genes.json')));
-    const disease2gene_query = JSON.parse(fs.readFileSync(path.join(example_foler, 'query_genes_relate_to_disease.json')));
+    const gene2chemical_query = JSON.parse(fs.readFileSync(path.join(example_folder, 'query_chemicals_physically_interacts_with_genes.json')));
+    const disease2gene_query = JSON.parse(fs.readFileSync(path.join(example_folder, 'query_genes_relate_to_disease.json')));
     const query_using_earlier_trapi_spec = JSON.parse(fs.readFileSync(path.join(old_spec_folder, 'query_genes_relate_to_disease.json')));
-    const query_without_category = JSON.parse(fs.readFileSync(path.join(example_foler, 'query_without_input_category.json')))
-    const expand_node = JSON.parse(fs.readFileSync(path.join(example_foler, 'query_with_node_to_be_expanded.json')))
+    const query_without_category = JSON.parse(fs.readFileSync(path.join(example_folder, 'query_without_input_category.json')))
+    const expand_node = JSON.parse(fs.readFileSync(path.join(example_folder, 'query_with_node_to_be_expanded.json')))
 
     test("GET /v1/predicates", async () => {
         await request(app)
@@ -51,7 +51,7 @@ describe("Testing endpoints", () => {
                 expect(response.body.message).toHaveProperty("knowledge_graph");
                 expect(response.body.message.knowledge_graph).toHaveProperty("nodes");
                 expect(response.body.message.knowledge_graph).toHaveProperty("edges");
-                expect(response.body.message.knowledge_graph.nodes).toHaveProperty("NCBIGENE:1017")
+                expect(response.body.message.knowledge_graph.nodes).toHaveProperty("NCBIGene:1017")
             })
     })
 
@@ -67,7 +67,7 @@ describe("Testing endpoints", () => {
                 expect(response.body.message).toHaveProperty("knowledge_graph");
                 expect(response.body.message.knowledge_graph).toHaveProperty("nodes");
                 expect(response.body.message.knowledge_graph).toHaveProperty("edges");
-                expect(response.body.message.knowledge_graph.nodes).toHaveProperty("MONDO:0008315")
+                expect(response.body.message.knowledge_graph.nodes).toHaveProperty("MONDO:0001583")
             })
     })
 

@@ -5,8 +5,8 @@ const axios = require("axios");
 var path = require('path');
 
 describe("Testing /v1/smartapi/{smartapi_id}/query endpoints", () => {
-    const invalid_example_folder = path.resolve(__dirname, "../../../examples/v1/invalid");
-    const example_foler = path.resolve(__dirname, '../../../examples/v1');
+    const invalid_example_folder = path.resolve(__dirname, "../../../examples/v1.1/invalid");
+    const example_folder = path.resolve(__dirname, '../../../examples/v1.1');
     test("Input query graph that doesn't pass Swagger Validation should return 400 error", async () => {
         const InvalidInputQueryGraph = {
             message1: 1
@@ -62,7 +62,7 @@ describe("Testing /v1/smartapi/{smartapi_id}/query endpoints", () => {
     })
 
     test("Query to Text Mining Targeted Association KP should have id resolution turned off", async () => {
-        const query = JSON.parse(fs.readFileSync(path.join(example_foler, "textmining/query_chemicals_related_to_gene_or_gene_product.json")));
+        const query = JSON.parse(fs.readFileSync(path.join(example_folder, "textmining/query_chemicals_related_to_gene_or_gene_product.json")));
         await request(app)
             .post("/v1/smartapi/978fe380a147a8641caf72320862697b/query/")
             .send(query)
@@ -76,7 +76,7 @@ describe("Testing /v1/smartapi/{smartapi_id}/query endpoints", () => {
     })
 
     test("Query to Text Mining Targeted Association KP should have id resolution turned off", async () => {
-        const query = JSON.parse(fs.readFileSync(path.join(example_foler, "textmining/query_chemicals_related_to_gene_or_gene_product.json")));
+        const query = JSON.parse(fs.readFileSync(path.join(example_folder, "textmining/query_chemicals_related_to_gene_or_gene_product.json")));
         await request(app)
             .post("/v1/smartapi/978fe380a147a8641caf72320862697b/query/")
             .send(query)
@@ -90,7 +90,7 @@ describe("Testing /v1/smartapi/{smartapi_id}/query endpoints", () => {
     })
 
     test("Query to non-Text Mining KPs should have id resolution turned on", async () => {
-        const query = JSON.parse(fs.readFileSync(path.join(example_foler, "serviceprovider/mychem.json")));
+        const query = JSON.parse(fs.readFileSync(path.join(example_folder, "serviceprovider/mychem.json")));
         await request(app)
             .post("/v1/smartapi/8f08d1446e0bb9c2b323713ce83e2bd3/query")
             .send(query)
@@ -98,12 +98,12 @@ describe("Testing /v1/smartapi/{smartapi_id}/query endpoints", () => {
             .expect(200)
             .expect('Content-Type', /json/)
             .then(response => {
-                expect(response.body.message.knowledge_graph.nodes).toHaveProperty("NCBIGENE:6530")
+                expect(response.body.message.knowledge_graph.nodes).toHaveProperty("NCBIGene:6530")
             })
     })
 
     test("Query to Text Mining Co-occurrence KP should be correctly paginated", async () => {
-        const query = JSON.parse(fs.readFileSync(path.join(example_foler, "textmining/query_chemicals_related_to_disease.json")));
+        const query = JSON.parse(fs.readFileSync(path.join(example_folder, "textmining/query_chemicals_related_to_disease.json")));
         const apiResponse = await axios.get('https://biothings.ncats.io/text_mining_co_occurrence_kp/query?q=object.id:%22MONDO:0005252%22%20AND%20subject.type:%22ChemicalSubstance%22');
         const hits = apiResponse.data.total;
         await request(app)

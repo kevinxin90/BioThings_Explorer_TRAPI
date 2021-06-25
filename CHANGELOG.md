@@ -2,6 +2,75 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.8.1](https://github.com/biothings/BioThings_Explorer_TRAPI/compare/v2.8.0...v2.8.1) (2021-06-05)
+
+
+### Features
+
+* :sparks: update to consume trapi v1.1 apis ([5b2f465](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/5b2f465483b7e817a0d75721ea16e6655b4bd215))
+* transform graph data from v1.1 to legacy format, uncomment code ([b1d2413](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/b1d24135c7831041a17eda277bfb6264959d957a))
+
+
+### Bug Fixes
+
+* add details to meta graph error ([1d36a18](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/1d36a18694e4ca291afda8d25ddc878e33bf1b16))
+
+## [2.8.0](https://github.com/biothings/BioThings_Explorer_TRAPI/compare/v2.7.0...v2.8.0) (2021-05-25)
+
+
+### Features
+
+* :sparkles: added meta_knowledge_graph endpoints by team and ip ([8882df4](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/8882df487e7348918e437fa6f971fadd7b24cb3f))
+
+
+### Bug Fixes
+
+* :bug: fix meta_kg endpoint for a given API ([85ff733](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/85ff733bbaefec91c55d36b9bf62bc4bc16259de))
+
+## [2.7.0](https://github.com/biothings/BioThings_Explorer_TRAPI/compare/v2.6.0...v2.7.0) (2021-05-16)
+
+
+### Features
+
+* :sparkles: add handler logics for creating v1 metakg ([c1c5011](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/c1c50116dcec2c131c36c8c3ec52502f49e65d2d))
+* :sparkles: add metakg routes to index ([7c7b8e1](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/7c7b8e1fed0f195c8ab5854b8a49d0cf9b71ae96))
+* :sparkles: create route for metakg ([cd379bc](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/cd379bc8f16c491090c2982f5c0fb5fbbc4dda3d))
+
+## [2.6.0](https://github.com/biothings/BioThings_Explorer_TRAPI/compare/v2.5.0...v2.6.0) (2021-05-11)
+
+
+### Features
+
+* :sparkles: upgrade handler to support trapi 1.1.0 ([3cec3f2](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/3cec3f2868864cd4a6501ba441ac4927b8034250))
+* trapi v1.1.0 support, update handler ([3109a8a](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/3109a8a14071198ae038c5001f0d1bd76c566ad2))
+
+
+### Bug Fixes
+
+* :bug: change from NCBIGENE to NCBIGene ([88d6035](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/88d6035d9c9e76451be5514409f3a416da062c55))
+
+## [2.5.0](https://github.com/biothings/BioThings_Explorer_TRAPI/compare/v2.4.0...v2.5.0) (2021-04-23)
+
+
+### Bug Fixes
+
+* :bug: fix issue when output ids contain special characters ([898483a](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/898483a89d678e7fc4c95dd43ab607e3bbc4ae46))
+
+## [2.4.0](https://github.com/biothings/BioThings_Explorer_TRAPI/compare/v2.3.0...v2.4.0) (2021-04-23)
+
+
+### Features
+
+* :sparkles: allow user to set MAX_QUERIES_PER_MIN as env ([8686092](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/8686092a8cbeedacbc38f8670a7be6470eeafc9d))
+* :sparkles: set rate limit to max 3 queries per min ([aeea89c](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/aeea89c867eace66ba485b1c8b146af2a4328912))
+
+
+### Bug Fixes
+
+* :bug: fix unable to resolve biocarta id issue ([551e4b1](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/551e4b1f938eb08054f303ec6d2460f558e32d08))
+* :fire: temporarily disable text mining co-occurrence kp ([d214a4d](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/d214a4dbec36a60d6df7d150f89835a6ea32bac8))
+* :sparkles: re-enable clinical risk kp ([4464dfc](https://github.com/biothings/BioThings_Explorer_TRAPI/commits/4464dfcffcb470ee7478cd16b2d93d712367ebd7))
+
 ## [2.3.0](https://github.com/biothings/BioThings_Explorer_TRAPI/compare/v2.2.0...v2.3.0) (2021-04-20)
 
 

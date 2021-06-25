@@ -86,7 +86,7 @@ describe("Test /metakg endpoint", () => {
             })
     })
 
-    test("Should return info from TRAPI /predicates endpoint", async () => {
+    test("Should return info from TRAPI /meta_knowledge_graph endpoint", async () => {
         await request(app)
             .get("/metakg")
             .expect(200)
@@ -94,7 +94,7 @@ describe("Test /metakg endpoint", () => {
             .then((response) => {
                 expect(response.body).toHaveProperty("associations");
                 const apis = Array.from(new Set(response.body.associations.map(item => item.api.name)));
-                expect(apis).toContain("Automat Pharos");
+                expect(apis).toContain("BioLink API");
             })
     })
 })
